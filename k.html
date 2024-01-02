@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="tesCorrect()">Correct</button>
+    <button onclick="tesWrong()">Wrong</button>
+    <p style="color: blue;"></p>
+    <script>
+        localStorage.clear();
+        var p = document.querySelector('p');
+
+        function tesCorrect() {
+            // Set the content to '10'
+            p.innerHTML = '20';
+
+            // Check if the content is '10' and change the color to blue
+            if (p.innerHTML === '50') {
+                p.style.color = 'blue';
+            } else {
+                // Set a default color if needed
+                p.style.color = 'red';
+            }
+        }
+
+
+        // Set the content to 'wrong'
+        localStorage.setItem('myKey', 10);
+
+        // Set a value in local storage
+
+        // Retrieve the value from local storage
+        var retrievedValue = localStorage.getItem('myKey');
+
+        // Check if the value exists
+        if (retrievedValue == 20) {
+            // Use the retrieved value
+            document.write(`<div style="color: blue;">${parseInt(retrievedValue)}</div>`);
+        } else {
+            document.write(`<div style="color: red;">${parseInt(retrievedValue)}</div>`);
+        }
+        if (retrievedValue == 10) {
+            p.innerHTML = parseInt(retrievedValue);
+            p.style.color = 'blue';
+        } else {
+            p.innerHTML = parseInt(retrievedValue);
+            p.style.color = 'red';
+        }
+        console.log(retrievedValue)
+
+    </script>
+</body>
+
+</html>

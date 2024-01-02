@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button Click Example</title>
+</head>
+
+<body>
+    <!-- <button onclick="buttonClicked(0)">Button 1</button>
+    <button onclick="buttonClicked(1)">Button 2</button>
+    <button onclick="buttonClicked(2)">Button 3</button>
+    <button onclick="buttonClicked(3)">Button 4</button>
+    <button onclick="buttonClicked(4)">Button 5</button>
+    <button onclick="buttonClicked(5)">Button 6</button>
+    <button onclick="buttonClicked(6)">Button 7</button>
+    <button onclick="buttonClicked(7)">Button 8</button>
+    <button onclick="buttonClicked(8)">Button 9</button>
+
+    <script src="script.js"></script> -->
+
+    <div id="output">
+        <p id="1"></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+    </div>
+
+    <script>
+
+        // Arrays
+        var array1 = [2, 2, 2, 3, 4, 5, 56, 22];
+        let array2 = [2, 3, 5, 6, 9, 6, 7, 8];
+        console.log(Math.max(parseInt(array1)))
+        var myArray = [1, 2, 3, 4, 5];
+
+        // Create a reversed copy of the array using slice and reverse
+        var reversedArray = myArray.slice().reverse();
+        console.log(reversedArray)
+        // Use forEach to iterate over the reversed array
+        reversedArray.forEach(function (element) {
+            console.log(element);
+        });
+
+        // Output element
+        let outputElement = document.getElementById("output");
+
+        // Get all <p> elements inside the output div
+        let paragraphs = outputElement.querySelectorAll("p");
+
+        // Iterate through the arrays in reverse order and set innerHTML of existing <p> elements
+        for (let i = Math.min(array1.length, array2.length) - 1; i >= 0; i--) {
+            // Check if elements at the current index match
+            if (array1[i] === array2[i]) {
+                paragraphs[i].innerHTML += " " + array1[i];
+                paragraphs[i].style.color = 'blue';
+            } else {
+                paragraphs[i].innerHTML += " " + array1[i];
+                paragraphs[i].style.color = 'red';
+            }
+        } // Retrieve the string from localStorage using the key
+        //  let retrievedString = localStorage.getItem("myArrayKey");
+        // Retrieve the string from localStorage using the key
+        // Retrieve the string from localStorage using the key
+        let retrievedString = localStorage.getItem("myArrayKey");
+
+        // Convert the string to an array using JSON.parse and reverse it
+        //let reversedArray = JSON.parse(retrievedString).reverse();
+
+        // Now, reversedArray contains the original array in reverse order
+        let s = retrievedString.slice();
+    
+        console.log(s.reverse());
+
+
+
+        //console.log(retrievedString.reverse());
+
+    </script>
+
+</body>
+
+</html>

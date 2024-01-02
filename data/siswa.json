@@ -1,0 +1,19 @@
+{
+  "students": [
+    {
+      "name": "Alice",
+      "Absen": 123992,
+      "class": "Mathematics"
+    },
+    {
+      "name": "Bob",
+      "Absen": 12321333,
+      "class": "Science"
+    },
+    {
+      "name": "Charlie",
+      "Absen": 42412312,
+      "class": "History"
+    }
+  ]
+}

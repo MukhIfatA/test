@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="content">
+            <h2>Enter Details</h2>
+            <div class="element">
+                <input type="text" id="txt_name" placeholder="Name">
+            </div>
+
+            <div class="element">
+                <input type="email" id="txt_email" placeholder="email">
+            </div>
+
+            <div class="element">
+                <div>Languages you now?</div>
+                <input type="checkbox" name="prolang" value="JavaScript"> JavaScript <br />
+                <input type="checkbox" name="prolang" value="jQuery"> jQuery <br />
+                <input type="checkbox" name="prolang" value="AngularJS"> AngularJS <br />
+                <input type="checkbox" name="prolang" value="NodeJS"> NodeJS <br />
+                <input type="checkbox" name="prolang" value="TypeScript"> TypeScript <br />
+            </div>
+
+            <div class="element">
+                <input type="button" value="Submit" id="submit">
+            </div>
+        </div>
+
+        <div class="details">
+            Name : <span id="name"></span><br />
+            Email : <span id="email"></span><br />
+            Languages : <span id="lang"></span><br />
+            jQuery : <span id="foundjquery"></span>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function () {
+
+            // submit button click
+            $("#submit").click(function () {
+
+                var name = $("#txt_name").val();
+                var email = $("#txt_email").val();
+                var lang = [];
+
+                // Initializing array with Checkbox checked values
+                $("input[name='prolang']:checked").each(function () {
+                    lang.push(this.value);
+                });
+
+                if (email != '') {
+                    $.ajax({
+                        url: 'getData.php',
+                        method: 'post',
+                        data: { name: name, email: email, lang: lang },
+                        dataType: 'JSON',
+                        success: function (response) {
+
+                            $('.details').show();
+
+                            // selecting values from response Object
+                            var name = response.name;
+                            var email = response.email;
+                            var lang = response.lang;
+                            var foundjquery = response.foundjquery;
+
+                            // setting values
+                            $('#name').text(name);
+                            $('#email').text(email);
+                            $('#lang').text(lang);
+                            $('#foundjquery').text(foundjquery);
+                        }
+                    });
+                }
+            });
+
+        });
+
+    </script>
+</body>
+
+</html>

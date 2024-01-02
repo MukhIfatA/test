@@ -1,0 +1,19 @@
+{
+  "folders": [
+	{
+		"path": "../Belajar tailwind"
+	},
+	{
+		"path": "."
+	},
+	{
+		"path": "D:/xampp/htdocs/psikolog/tes kraeplin"
+	},
+	{
+		"path": "D:/xampp/htdocs/disc_id-master[1]"
+	}
+],
+  "settings": {
+    "liveServer.settings.multiRootWorkspaceName": "AJAX"
+  }
+}
